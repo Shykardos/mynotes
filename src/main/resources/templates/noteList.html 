@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Notes</title>
+    <style>
+            body {
+                background-color: #000000;
+                color: #ffffff;
+            }
+        </style>
+</head>
+<body>
+    <h2>My Notes</h2>
+    <ul>
+        <li th:each="note : ${notes}">
+            <a th:href="@{'/note/view/' + ${note.id}}" th:text="${note.name}"></a>
+        </li>
+    </ul>
+</body>
+</html>

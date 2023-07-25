@@ -1,0 +1,29 @@
+CREATE TABLE users (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE roles (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE users_roles (
+    user_id BIGINT REFERENCES users(id),
+    role_id BIGINT REFERENCES roles(id),
+    PRIMARY KEY (user_id, role_id)
+);
+
+CREATE TABLE notes (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    uuid VARCHAR(36) NOT NULL UNIQUE,
+    name VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    access_type ENUM('PUBLIC', 'PRIVATE') NOT NULL,
+    user_id BIGINT REFERENCES users(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_notes_user_id ON notes(user_id);

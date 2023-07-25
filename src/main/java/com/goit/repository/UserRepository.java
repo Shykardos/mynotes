@@ -1,2 +1,8 @@
-package com.goit.repository;public interface UserRepository {
+package com.goit.repository;
+
+import com.goit.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findByUsername(String username);
 }

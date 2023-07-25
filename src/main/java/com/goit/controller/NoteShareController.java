@@ -1,4 +1,4 @@
-package com.goit.service;
+package com.goit.controller;
 
 import com.goit.model.Note;
 import com.goit.service.NoteService;
@@ -21,7 +21,7 @@ public class NoteShareController {
         Optional<Note> optionalNote = noteService.getNoteById(noteId);
 
         if (!optionalNote.isPresent() || optionalNote.get().getAccessType() != Note.AccessType.PUBLIC) {
-            return "errorPage"; 
+            return "errorPage";
         }
 
         model.addAttribute("note", optionalNote.get());
