@@ -1,6 +1,6 @@
 package com.goit.repository;
 
-import com.goit.domain.User;
+import com.goit.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

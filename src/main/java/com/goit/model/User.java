@@ -1,4 +1,4 @@
-package com.goit.domain;
+package com.goit.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

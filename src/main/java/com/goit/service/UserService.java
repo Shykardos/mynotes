@@ -1,7 +1,7 @@
 package com.goit.service;
 
 import com.goit.repository.UserRepository;
-import com.goit.domain.User;
+import com.goit.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

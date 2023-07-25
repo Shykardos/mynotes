@@ -1,7 +1,5 @@
 package com.goit.model;
 
-import com.goit.domain.User;
-
 import javax.persistence.*;
 import java.util.Set;
 
