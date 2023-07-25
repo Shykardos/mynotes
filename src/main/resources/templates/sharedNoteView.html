@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Note View</title>
+    <title>My Notes</title>
     <style>
         body {
             background-color: #000000;
             color: #ffffff;
         }
+        .share-button {
+            background-color: ##ffffff;
+            border-radius: 5px;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-<h2 th:text="${note.name}"></h2>
-<p th:text="${note.content}"></p>
+<h1>My Notes</h1>
+<ul>
+    <li th:each="note : ${notes}">
+        <span th:text="${note.name}"></span>
+        <button class="share-button" th:onclick="'shareNoteFunction('+${note.id}+');'">Поділитись</button>
+    </li>
+</ul>
+
+<script>
+        function shareNoteFunction(noteId) {
+            alert('Note with ID: ' + noteId + ' shared!');
+        }
+    </script>
 </body>
 </html>
+
+
